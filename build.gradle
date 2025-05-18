@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'br.dev.ferreiras'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.apache.spark/spark-core
+    implementation("org.apache.spark:spark-core_2.13:3.5.5")
+    // https://mvnrepository.com/artifact/org.apache.spark/spark-sql
+    compileOnly("org.apache.spark:spark-sql_2.13:3.5.5")
+    // https://mvnrepository.com/artifact/org.apache.spark/spark-mllib
+    compileOnly("org.apache.spark:spark-mllib_2.13:3.5.5")
+    // https://mvnrepository.com/artifact/org.apache.spark/spark-streaming
+    compileOnly("org.apache.spark:spark-streaming_2.13:3.5.5")
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
+    implementation("org.apache.logging.log4j:log4j-api:3.0.0-beta2")
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
